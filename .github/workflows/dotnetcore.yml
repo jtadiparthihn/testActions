@@ -15,12 +15,15 @@ jobs:
         dotnet-version: 2.2.108
     - name: Build with dotnet
       run: dotnet build --configuration Release ./testActions/testActions.sln
+      
     - name: dotnet publish
-      run: |
-        dotnet publish -c Release -o testActions ./testActions/testActions.sln
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
-      uses: azure/webapps-deploy@v1
+      run: dotnet publish -c Release -o testActions ./testActions/testActions.sln
+      
+    - name: test variables
+      run: echo ${GITHUB_WORKSPACE}
+      
+    - name: publish build artifacts back to GitHub
+      uses: actions/upload-artifact@master
       with: 
-        app-name: testActions # Replace with your app name
-        publish-profile: $publish_profile # Define secret variable in repository settings as per action documentation
-        package: './testActions'
+        name: testActions
+        path: bin/Release/netcoreapp2.2/publish
