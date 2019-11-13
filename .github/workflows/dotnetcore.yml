@@ -17,7 +17,7 @@ jobs:
       run: dotnet build --configuration Release ./testActions/testActions.sln
     - name: dotnet publish
       run: |
-        dotnet publish -c Release -o testActions 
+        dotnet publish -c Release -o testActions ./testActions/testActions.sln
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v1
       with: 
