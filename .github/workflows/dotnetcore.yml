@@ -20,7 +20,7 @@ jobs:
       run: mkdir -p bin/Release/netcoreapp2.2/publish   
             
     - name: dotnet publish
-      run: dotnet publish -c Release -o testActions ./testActions/testActions.sln
+      run: dotnet publish -c Release ./testActions/testActions.sln
       
     - name: test variables
       run: echo ${GITHUB_WORKSPACE}
