@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@master
       with: 
         name: testActions
-        path: ./testActions/bin/Release/netcoreapp2.2/publish
+        path: ./bin/Release/netcoreapp2.2/publish
