@@ -18,6 +18,8 @@ jobs:
       
     - name: dotnet publish
       run: dotnet publish -c Release -o testActions ./testActions/testActions.sln
+    - name : create publish directory
+      run: mkdir -p bin/Release/netcoreapp2.2/publish     
       
     - name: test variables
       run: echo ${GITHUB_WORKSPACE}
@@ -26,4 +28,4 @@ jobs:
       uses: actions/upload-artifact@master
       with: 
         name: testActions
-        path: ${GITHUB_WORKSPACE}/bin/Release/netcoreapp2.2/publish
+        path: bin/Release/netcoreapp2.2/publish
