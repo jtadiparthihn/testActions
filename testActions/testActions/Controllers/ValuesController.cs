@@ -14,7 +14,7 @@ namespace testActions.Controllers
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return "value8";
+            return "value9";
         }
         //public ActionResult<IEnumerable<string>> Get()
         //{
